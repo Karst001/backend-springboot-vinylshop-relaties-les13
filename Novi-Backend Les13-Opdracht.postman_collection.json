@@ -1,0 +1,428 @@
+{
+	"info": {
+		"_postman_id": "b3f163a7-14b0-47f4-848e-30e13ff04fc5",
+		"name": "Novi-Backend Les13-Opdracht",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14552475"
+	},
+	"item": [
+		{
+			"name": "genres",
+			"item": [
+				{
+					"name": "findAllgenres",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}genres",
+							"host": [
+								"{{baseURL}}genres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findGenreById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}genres/2",
+							"host": [
+								"{{baseURL}}genres"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createGenre",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Test\",\r\n    \"description\": \"Pop & Country\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}genres",
+							"host": [
+								"{{baseURL}}genres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateGenre",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Micheal Jackson\",\r\n    \"description\": \"Soul\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}genres/2",
+							"host": [
+								"{{baseURL}}genres"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteGenreById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}genres/2",
+							"host": [
+								"{{baseURL}}genres"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "publishers",
+			"item": [
+				{
+					"name": "findAllPublishers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}publishers",
+							"host": [
+								"{{baseURL}}publishers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findPublishersById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}publishers/2",
+							"host": [
+								"{{baseURL}}publishers"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createPublisher",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"TopOfThePops\",\r\n    \"address\": \"PC Hoofdstraat 1, Coevorden\",\r\n    \"contactDetails\": \"Sinterklaas wie kent hem niet\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}publishers",
+							"host": [
+								"{{baseURL}}publishers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updatePublisher",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Stars of 45\",\r\n    \"address\": \"Recordstraat 34, terneuzen\",\r\n    \"contactDetails\": \"Jan Jansen\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}publishers/3",
+							"host": [
+								"{{baseURL}}publishers"
+							],
+							"path": [
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletePublishersById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}publishers/1",
+							"host": [
+								"{{baseURL}}publishers"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "albums",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Greatest Hits\",\r\n  \"releaseYear\": 2026,\r\n  \"genreId\": 1,\r\n  \"publisherId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}} albums",
+							"host": [
+								"{{baseURL}} albums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}albums/1",
+							"host": [
+								"{{baseURL}}albums"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAllAlbums",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}albums",
+							"host": [
+								"{{baseURL}}albums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAllAlbumsWithStock",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}albums?stock=true",
+							"host": [
+								"{{baseURL}}albums"
+							],
+							"query": [
+								{
+									"key": "stock",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAlbumsById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}albums/1",
+							"host": [
+								"{{baseURL}}albums"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAllArtistsByAlbum",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}albums/1/artists",
+							"host": [
+								"{{baseURL}}albums"
+							],
+							"path": [
+								"1",
+								"artists"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "artists",
+			"item": [
+				{
+					"name": "LinkArtistToAlbum",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Greatest Hits\",\r\n  \"releaseYear\": 2026,\r\n  \"genreId\": 1,\r\n  \"publisherId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}albums/1/artists/3",
+							"host": [
+								"{{baseURL}}albums"
+							],
+							"path": [
+								"1",
+								"artists",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UnlinkArtistToAlbum",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Greatest Hits\",\r\n  \"releaseYear\": 2026,\r\n  \"genreId\": 1,\r\n  \"publisherId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}albums/1/artists/2",
+							"host": [
+								"{{baseURL}}albums"
+							],
+							"path": [
+								"1",
+								"artists",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": ""
+		}
+	]
+}
