@@ -8,7 +8,7 @@ public class PublisherRequestDTO {
     @Max(value = 50, message = "Warning: name cannot exceed 50 characters")
     String name;
 
-    String address;
+    String emailAddress;
     String contactDetails;
 
 
@@ -20,12 +20,12 @@ public class PublisherRequestDTO {
         this.name = name;
     }
 
-    public String getAddress() {
-        return address;
+    public String getEmailAddress() {
+        return emailAddress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
 
     public String getContactDetails() {

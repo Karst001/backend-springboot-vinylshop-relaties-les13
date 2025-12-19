@@ -5,7 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "genre")
+@Table(name = "genres")
 public class GenreEntity extends BaseEntity{
     // define the properties
     @Column(nullable = false)   //name column is mandatory

@@ -1,19 +1,32 @@
 package nl.novi.vinylshop.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "publisher")
+@Table(name = "publishers")
 public class PublisherEntity extends BaseEntity{
     //define the properties
     @Column(nullable = false) //name column is mandatory
     private String name;
-    private String address;
+    private String emailAddress;
     private String contactDetails;
 
-    //getters and setters
+    //define relation: a Publisher can have 0 or more albums
+    @OneToMany(mappedBy = "publisher", cascade = CascadeType.ALL)
+    private List<AlbumEntity> albums;
+
+    //getters and setters for Albums
+    public List<AlbumEntity> getAlbums() {
+        return albums;
+    }
+
+    public void setAlbums(List<AlbumEntity> albums) {
+        this.albums = albums;
+    }
+
+
+    //getters and setters for Publisher
     public String getName() {
         return name;
     }
@@ -22,12 +35,12 @@ public class PublisherEntity extends BaseEntity{
         this.name = name;
     }
 
-    public String getAddress() {
-        return address;
+    public String getEmailAddress() {
+        return emailAddress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
 
     public String getContactDetails() {

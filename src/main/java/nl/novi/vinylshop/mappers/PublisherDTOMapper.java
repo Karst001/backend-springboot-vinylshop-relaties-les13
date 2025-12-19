@@ -1,10 +1,7 @@
 package nl.novi.vinylshop.mappers;
 
-import nl.novi.vinylshop.dtos.genre.GenreRequestDTO;
-import nl.novi.vinylshop.dtos.genre.GenreResponseDTO;
 import nl.novi.vinylshop.dtos.publisher.PublisherRequestDTO;
 import nl.novi.vinylshop.dtos.publisher.PublisherResponseDTO;
-import nl.novi.vinylshop.entities.GenreEntity;
 import nl.novi.vinylshop.entities.PublisherEntity;
 import org.springframework.stereotype.Component;
 
@@ -21,7 +18,7 @@ public class PublisherDTOMapper implements DTOMapperInterface<PublisherResponseD
         //set values
         response.setId(model.getId());
         response.setName(model.getName());
-        response.setAddress(model.getAddress());
+        response.setEmailAddress(model.getEmailAddress());
         response.setContactDetails(model.getContactDetails());
 
         //return single object
@@ -51,7 +48,7 @@ public class PublisherDTOMapper implements DTOMapperInterface<PublisherResponseD
 
         //set values
         entity.setName(genreModel.getName());
-        entity.setAddress(genreModel.getAddress());
+        entity.setEmailAddress(genreModel.getEmailAddress());
         entity.setContactDetails(genreModel.getContactDetails());
 
         //return entity

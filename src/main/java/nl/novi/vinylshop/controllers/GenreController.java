@@ -18,7 +18,6 @@ public class GenreController {
     private final GenreService genreService;
     private final UrlHelper urlHelper;
 
-    //constructor
     public GenreController(GenreService genreService, UrlHelper urlHelper) {
         this.genreService = genreService;
         this.urlHelper = urlHelper;
