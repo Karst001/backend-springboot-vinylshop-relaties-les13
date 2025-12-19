@@ -1,9 +1,13 @@
 package nl.novi.vinylshop.services;
 
+import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import nl.novi.vinylshop.dtos.genre.GenreRequestDTO;
 import nl.novi.vinylshop.dtos.genre.GenreResponseDTO;
+import nl.novi.vinylshop.entities.AlbumEntity;
 import nl.novi.vinylshop.entities.GenreEntity;
 import nl.novi.vinylshop.mappers.GenreDTOMapper;
+import nl.novi.vinylshop.repositories.AlbumRepository;
 import nl.novi.vinylshop.repositories.GenreRepository;
 import org.springframework.stereotype.Service;
 
@@ -12,14 +16,14 @@ import java.util.Optional;
 
 @Service
 public class GenreService {
-    //dependency injections
     private final GenreRepository genreRepository;
     private final GenreDTOMapper genreDTOMapper;
+    private final AlbumRepository albumRepository;
 
-    public GenreService(GenreRepository genreRepository, GenreDTOMapper genreDTOMapper) {
-        //instantiate
+    public GenreService(GenreRepository genreRepository, GenreDTOMapper genreDTOMapper, AlbumRepository albumRepository) {
         this.genreRepository = genreRepository;
         this.genreDTOMapper = genreDTOMapper;
+        this.albumRepository = albumRepository;
     }
 
 
@@ -72,11 +76,6 @@ public class GenreService {
     }
 
 
-    public void deleteGenre(Long id) {
-        genreRepository.deleteById(id);
-    }
-
-
     //private function to check if entity exists
     private GenreEntity getGenreEntityById(Long id) {
         Optional<GenreEntity> genreEntity = genreRepository.findById(id);
@@ -90,5 +89,27 @@ public class GenreService {
         //        } else {
         //            return null;
         //        }
+    }
+
+
+    @Transactional
+    public void deleteGenre(Long id) {
+        GenreEntity genre = genreRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Genre " + id + " not found"));
+
+        //get the albums
+        List<AlbumEntity> albums = albumRepository.findByGenre_Id(id);
+
+        //remove relation from Album side, the Album owns the FK
+        //iterate through albums and setGenre to null
+        for (AlbumEntity album : albums) {
+            album.setGenre(null);
+        }
+
+        //save Albums
+        albumRepository.saveAll(albums);
+
+        // delete the genre as relation(s) are removed
+        genreRepository.delete(genre);
     }
 }

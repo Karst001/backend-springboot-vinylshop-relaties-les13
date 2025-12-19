@@ -3,7 +3,7 @@ package nl.novi.vinylshop.dtos.publisher;
 public class PublisherResponseDTO {
     long id;
     String name;
-    String address;
+    String emailAddress;
     String contactDetails;
 
 
@@ -23,12 +23,12 @@ public class PublisherResponseDTO {
         this.name = name;
     }
 
-    public String getAddress() {
-        return address;
+    public String getEmailAddress() {
+        return emailAddress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
 
     public String getContactDetails() {

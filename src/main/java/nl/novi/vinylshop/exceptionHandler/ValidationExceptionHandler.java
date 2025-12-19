@@ -1,5 +1,6 @@
 package nl.novi.vinylshop.exceptionHandler;
 
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -29,5 +30,14 @@ public class ValidationExceptionHandler {
 
         //return nicely formatted error
         return ResponseEntity.badRequest().body(errors);
+    }
+
+
+    //this handles EntityNotFoundException errors properly, returns a 40x instead of 50x internal server error which is IntelliJ default
+    @ExceptionHandler(EntityNotFoundException.class)
+    public ResponseEntity<Map<String, String>> handleEntityNotFound(EntityNotFoundException ex) {
+        Map<String, String> error = new HashMap<>();
+        error.put("error", ex.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
 }

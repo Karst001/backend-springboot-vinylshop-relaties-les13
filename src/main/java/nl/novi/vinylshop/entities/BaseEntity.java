@@ -1,11 +1,6 @@
 package nl.novi.vinylshop.entities;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
-import jakarta.persistence.PrePersist;
-import jakarta.persistence.PreUpdate;
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
@@ -16,20 +11,22 @@ public abstract class BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDateTime createDate;
-    private LocalDateTime editDate;
+    private LocalDateTime createdDate;
+
+    @Column(name = "edited_date")
+    private LocalDateTime editedDate;
 
     //event on Create, Hibernate scans lifecycle hooks inside entities
     @PrePersist
     protected void onCreate() {
-        this.createDate = LocalDateTime.now();
-        this.editDate = LocalDateTime.now();
+        this.createdDate = LocalDateTime.now();
+        this.editedDate = LocalDateTime.now();
     }
 
     //event on Update, Hibernate scans lifecycle hooks inside entities
     @PreUpdate
     protected void onUpdate() {
-        this.editDate = LocalDateTime.now();
+        this.editedDate = LocalDateTime.now();
     }
 
     // Getters and setters
@@ -38,11 +35,11 @@ public abstract class BaseEntity {
     }
 
     public LocalDateTime getCreateDate() {
-        return createDate;
+        return createdDate;
     }
 
-    public LocalDateTime getEditDate() {
-        return editDate;
+    public LocalDateTime getEditedDate() {
+        return editedDate;
     }
 }
 

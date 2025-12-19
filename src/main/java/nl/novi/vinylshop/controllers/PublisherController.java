@@ -17,7 +17,6 @@ public class PublisherController {
     private final PublisherService publisherService;
     private final UrlHelper urlHelper;
 
-    //constructor
     public PublisherController(PublisherService publisherService, UrlHelper urlHelper) {
         this.publisherService = publisherService;
         this.urlHelper = urlHelper;

@@ -10,3 +10,11 @@ public class VinylShopApplication {
         SpringApplication.run(VinylShopApplication.class, args);
     }
 }
+
+
+//notes
+// Controller -> talks to service
+// Service -> talks to repository
+// Repository -> returns entities
+// Mapper -> converts entities to DTOs
+// Controller -> returns DTOs

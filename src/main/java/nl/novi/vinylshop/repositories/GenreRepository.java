@@ -2,8 +2,6 @@ package nl.novi.vinylshop.repositories;
 
 import nl.novi.vinylshop.entities.GenreEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
